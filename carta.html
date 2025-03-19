@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Jennifer</title>
+    <style>
+        body {
+            background-color: #f4ebe2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .carta {
+            width: 350px;
+            height: 250px;
+            background: #d4af37;
+            border: 5px solid #8b6f47;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .carta::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #b08d57;
+            clip-path: polygon(0 0, 100% 0, 50% 50%);
+            top: 0;
+            transition: transform 0.5s;
+        }
+
+        .carta.abierta::before {
+            transform: rotateX(180deg);
+        }
+
+        .hoja {
+            position: absolute;
+            width: 320px;
+            height: 220px;
+            background: #fff8dc;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: justify;
+            transform: scaleY(0);
+            transition: transform 0.5s;
+            overflow-y: auto;
+        }
+
+        .carta.abierta .hoja {
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="carta" onclick="abrirCarta()">
+        <div class="hoja">
+            <h2>Mi amor,</h2>
+            <p>Hoy cumplimos un mes juntos, y no puedo estar más feliz. Han sido 30 días llenos de momentos hermosos, risas, abrazos y sentimientos que solo crecen con el tiempo. Desde que llegaste a mi vida, todo ha sido más bonito, más especial, más mágico.</p>
+            <p>Cada instante a tu lado me hace darme cuenta de lo afortunado que soy. Tu sonrisa ilumina mis días, tu voz es mi melodía favorita, y tu amor es el mejor regalo que podría recibir. En solo un mes, me has hecho sentir cosas que nunca imaginé, y sé que esto es solo el comienzo de algo increíble.</p>
+            <p>Gracias por cada detalle, por cada mirada, por cada palabra que hace mi corazón latir más fuerte. No hay nadie con quien quisiera estar más que contigo. Este es el primer mes de muchos que nos esperan, porque quiero seguir construyendo momentos inolvidables a tu lado.</p>
+            <p>Te amo con todo mi corazón. ¡Feliz primer mes, mi vida!💖</p>
+            <p>Siempre tuyo❤️.</p>
+        </div>
+    </div>
+
+    <script>
+        function abrirCarta() {
+            document.querySelector('.carta').classList.toggle('abierta');
+        }
+    </script>
+</body>
+</html>
